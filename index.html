@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebPro Quiz 1 - Portal</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: white;
+            border-radius: 1rem;
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(13, 110, 253, 0.2);
+        }
+        .card-custom {
+            border: none;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .nav-link {
+            font-weight: 500;
+            transition: color 0.15s ease-in-out;
+        }
+        .nav-link.active {
+            color: #0d6efd !important;
+            font-weight: 600;
+        }
+        footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        .page-view {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .page-view.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="#/quiz1" onclick="navigateTo('/quiz1'); return false;">
+                <i class="fa-solid fa-graduation-cap me-2"></i>WebPro Quiz 1
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#/quiz1" id="nav-home" onclick="navigateTo('/quiz1'); return false;">
+                            <i class="fa-solid fa-house me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#/quiz1/profile" id="nav-profile" onclick="navigateTo('/quiz1/profile'); return false;">
+                            <i class="fa-solid fa-user me-1"></i> Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#/quiz1/hometown" id="nav-hometown" onclick="navigateTo('/quiz1/hometown'); return false;">
+                            <i class="fa-solid fa-city me-1"></i> Hometown
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#/quiz1/food" id="nav-food" onclick="navigateTo('/quiz1/food'); return false;">
+                            <i class="fa-solid fa-utensils me-1"></i> Local Food
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#/quiz1/tourist" id="nav-tourist" onclick="navigateTo('/quiz1/tourist'); return false;">
+                            <i class="fa-solid fa-map-location-dot me-1"></i> Tourist Places
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container my-4">
+
+        <!-- 1. HOMEPAGE -->
+        <div id="view-home" class="page-view">
+            <div class="hero-section text-center">
+                <h1 class="display-4 fw-bold mb-3">Welcome to WebPro Quiz 1 Portal</h1>
+                <p class="lead mb-4 mx-auto" style="max-width: 650px;">
+                    An interactive showcase website built for EF234301 Web Programming (Class D). Explore personal profile details, hometown highlights, local delicacies, and tourist spots.
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-light text-primary fw-semibold px-4 py-2 rounded-pill shadow-sm" onclick="navigateTo('/quiz1/profile')">
+                        <i class="fa-solid fa-arrow-right me-2"></i>Explore Profile
+                    </button>
+                    <button class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill" onclick="navigateTo('/quiz1/hometown')">
+                        Discover Hometown
+                    </button>
+                </div>
+            </div>
+
+            <div class="row mt-5 g-4">
+                <div class="col-md-4">
+                    <div class="card card-custom h-project p-4 bg-white">
+                        <div class="text-primary mb-3 fs-3"><i class="fa-solid fa-id-badge"></i></div>
+                        <h4 class="h5 fw-bold">Student Profile</h4>
+                        <p class="text-muted small mb-3">Learn about academic background, technical skills, and university journey at ITS.</p>
+                        <a href="#/quiz1/profile" onclick="navigateTo('/quiz1/profile'); return false;" class="text-decoration-none fw-semibold small">View Profile <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom h-project p-4 bg-white">
+                        <div class="text-success mb-3 fs-3"><i class="fa-solid fa-bowl-food"></i></div>
+                        <h4 class="h5 fw-bold">Kupang Delicacies</h4>
+                        <p class="text-muted small mb-3">Discover signature local foods like Se'i, Jagung Bose, and traditional flavors.</p>
+                        <a href="#/quiz1/food" onclick="navigateTo('/quiz1/food'); return false;" class="text-decoration-none fw-semibold small text-success">Explore Food <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom h-project p-4 bg-white">
+                        <div class="text-warning mb-3 fs-3"><i class="fa-solid fa-umbrella-beach"></i></div>
+                        <h4 class="h5 fw-bold">Tourist Attractions</h4>
+                        <p class="text-muted small mb-3">Explore scenic beaches, crystal caves, and cultural landmarks of East Nusa Tenggara.</p>
+                        <a href="#/quiz1/tourist" onclick="navigateTo('/quiz1/tourist'); return false;" class="text-decoration-none fw-semibold small text-warning">View Attractions <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. PROFILE PAGE -->
+        <div id="view-profile" class="page-view">
+            <div class="bg-white p-4 p-md-5 rounded-4 card-custom mb-4">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4 text-center">
+                        <img src="images/profilePic.jfif" alt="Profile Avatar" class="rounded-circle img-fluid shadow mb-3" style="width: 200px; height: 200px; object-fit: cover;">
+                        <h3 class="fw-bold mb-1">Grandira Haidee Alexandro Letik</h3>
+                        <p class="text-muted mb-0">NRP. 5025251226</p>
+                        <span class="badge bg-primary-subtle text-primary mt-2 px-3 py-1 rounded-pill">Informatics Engineering</span>
+                    </div>
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold mb-3">About Me</h2>
+                        <p class="text-muted">
+                            Hello! I am an undergraduate student majoring in Informatics Engineering at Institut Teknologi Sepuluh Nopember (ITS), Surabaya. I have a strong passion for software engineering, web development, and creating clean, user-centric web applications. 
+                        </p>
+                        <p class="text-muted mb-4">
+                            This static website is created as part of Quiz 1 for the Web Programming course (EF234301), demonstrating vanilla JavaScript client-side routing, and modular UI architecture.
+                        </p>
+                        
+                        <h5 class="fw-bold mb-3">Technical Skills</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-light text-dark border px-3 py-2"><i class="fa-brands fa-html5 text-danger me-1"></i> HTML5 / CSS3</span>
+                            <span class="badge bg-light text-dark border px-3 py-2"><i class="fa-brands fa-js text-warning me-1"></i> JavaScript (ES6+)</span>
+                            <span class="badge bg-light text-dark border px-3 py-2"><i class="fa-brands fa-python text-primary me-1"></i> Python</span>
+                            <span class="badge bg-light text-dark border px-3 py-2"><i class="fa-solid fa-database text-success me-1"></i> MySQL / SQL</span>
+                            <span class="badge bg-light text-dark border px-3 py-2"><i class="fa-brands fa-git-alt text-danger me-1"></i> Git & GitHub</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. HOMETOWN PAGE -->
+        <div id="view-hometown" class="page-view">
+            <div class="bg-white p-4 p-md-5 rounded-4 card-custom">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <h2 class="fw-bold mb-3">Kupang, East Nusa Tenggara</h2>
+                        <p class="text-muted">
+                            Kupang is a port city and the capital of the province of East Nusa Tenggara, Indonesia, located on the island of Timor. Known as the "City of Coral," Kupang serves as the primary economic, political, and cultural hub of the Lesser Sunda Islands.
+                        </p>
+                        <p class="text-muted">
+                            The city boasts a rich blend of cultural heritage influenced by Portuguese and Dutch colonial histories, paired with native Timorese traditions. With its warm tropical climate, stunning coastal panoramas, and friendly local communities, Kupang offers a unique window into eastern Indonesian life.
+                        </p>
+                        <div class="row g-3 mt-2">
+                            <div class="col-6">
+                                <div class="p-3 bg-light rounded-3 border">
+                                    <h6 class="fw-bold text-primary mb-1"><i class="fa-solid fa-users me-2"></i>Population</h6>
+                                    <p class="small text-muted mb-0">~450,000 residents</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 bg-light rounded-3 border">
+                                    <h6 class="fw-bold text-success mb-1"><i class="fa-solid fa-temperature-arrow-up me-2"></i>Climate</h6>
+                                    <p class="small text-muted mb-0">Tropical Savanna</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="images/representasiKotaKupang.jfif" alt="Kupang Cityscape" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; max-height: 350px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. LOCAL FOOD PAGE -->
+        <div id="view-food" class="page-view">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Culinary Highlights of Kupang</h2>
+                <p class="text-muted">Traditional flavors and authentic dishes you must try when visiting Kupang.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Food 1 -->
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 bg-white">
+                        <img src="images/se'iSapi.jfif" class="card-img-top rounded-top-4" alt="Se'i" style="height: 200px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <span class="badge bg-danger-subtle text-danger mb-2">Signature Meat</span>
+                            <h4 class="h5 fw-bold">Se'i (Smoked Meat)</h4>
+                            <p class="text-muted small">
+                                Se'i is Kupang's most famous culinary export. It is thinly sliced pork or beef, smoked over special wood embers (kusambi wood) and served with spicy lu'at chili sauce and cassava leaves.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Food 2 -->
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 bg-white">
+                        <img src="images/jagungBose.jpg" class="card-img-top rounded-top-4" alt="Jagung Bose" style="height: 200px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <span class="badge bg-warning-subtle text-warning mb-2">Traditional Staple</span>
+                            <h4 class="h5 fw-bold">Jagung Bose</h4>
+                            <p class="text-muted small">
+                                A hearty corn porridge made from mashed white corn cooked with red beans, green beans, and coconut milk. It is traditionally consumed as a staple food alternative to rice in Timor.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Food 3 -->
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 bg-white">
+                        <img src="images/ketanKatjang" class="card-img-top rounded-top-4" alt="Ketan Katjang" style="height: 200px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <span class="badge bg-primary-subtle text-primary mb-2">Traditional Snack</span>
+                            <h4 class="h5 fw-bold">Ketan Katjang / Local Snacks</h4>
+                            <p class="text-muted small">
+                                Savory glutinous rice served with sweet peanut paste or traditional pastries flavored with coconut sugar and local spices, perfect for accompanying afternoon coffee or tea.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. TOURIST PLACES PAGE -->
+        <div id="view-tourist" class="page-view">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Tourist Attractions in Kupang</h2>
+                <p class="text-muted">Explore pristine beaches, crystal-clear subterranean caves, and cultural spots.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Attraction 1 -->
+                <div class="col-md-6">
+                    <div class="card card-custom h-100 bg-white flex-md-row overflow-hidden">
+                        <img src="images/lasianaBeach.jpg" class="w-100 w-md-50" style="object-fit: cover; height: 240px;" alt="Lasiana Beach">
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <span class="badge bg-info-subtle text-info mb-2">Scenic Beach</span>
+                                <h4 class="h5 fw-bold">Lasiana Beach</h4>
+                                <p class="text-muted small mb-0">
+                                    Famous for its iconic lontar palm trees lining the white sandy shores, calm blue waters, and magnificent sunset views located about 12 km east of Kupang city.
+                                </p>
+                            </div>
+                            <div class="mt-3 text-secondary small"><i class="fa-solid fa-location-dot me-1 text-danger"></i> East Kupang District</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Attraction 2 -->
+                <div class="col-md-6">
+                    <div class="card card-custom h-100 bg-white flex-md-row overflow-hidden">
+                        <img src="images/guaKristal.jfif" class="w-100 w-md-50" style="object-fit: cover; height: 240px;" alt="Crystal Cave">
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <span class="badge bg-purple-subtle text-purple mb-2" style="background-color: #e0cffc; color: #520dc2;">Natural Wonder</span>
+                                <h4 class="h5 fw-bold">Crystal Cave (Gua Kristal)</h4>
+                                <p class="text-muted small mb-0">
+                                    A stunning subterranean cave featuring crystal-clear freshwater pool illuminated by shafts of sunlight filtering through limestone openings. Perfect for swimming and exploration.
+                                </p>
+                            </div>
+                            <div class="mt-3 text-secondary small"><i class="fa-solid fa-location-dot me-1 text-danger"></i> Bolok, Kupang</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-1 small">&copy; 2026 EF234301 Web Programming (Class D) | Quiz 1</p>
+            <p class="text-muted small mb-0">Institut Teknologi Sepuluh Nopember (ITS)</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Client-Side Routing Script -->
+    <script>
+        // Define route mapping table
+        const routes = {
+            '/quiz1': 'view-home',
+            '/quiz1/profile': 'view-profile',
+            '/quiz1/hometown': 'view-hometown',
+            '/quiz1/food': 'view-food',
+            '/quiz1/tourist': 'view-tourist'
+        };
+
+        function navigateTo(path) {
+            // Normalize path
+            if (!routes[path]) {
+                path = '/quiz1';
+            }
+
+            // Update browser hash state
+            window.location.hash = path;
+
+            // Hide all views
+            document.querySelectorAll('.page-view').forEach(view => {
+                view.classList.remove('active');
+            });
+
+            // Show target view
+            const targetViewId = routes[path];
+            const targetElement = document.getElementById(targetViewId);
+            if (targetElement) {
+                targetElement.classList.add('active');
+            }
+
+            // Update active navbar links
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Find matching nav link and set active
+            const activeNav = document.querySelector(`.navbar-nav .nav-link[href="#${path}"]`);
+            if (activeNav) {
+                activeNav.classList.add('active');
+            }
+
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle hash change events on load or back/forward buttons
+        function handleRouting() {
+            let hash = window.location.hash.substring(1); // remove '#'
+            if (!hash || !routes[hash]) {
+                hash = '/quiz1';
+            }
+            navigateTo(hash);
+        }
+
+        window.addEventListener('hashchange', handleRouting);
+        window.addEventListener('DOMContentLoaded', () => {
+            // If no hash is set initially, default to /quiz1
+            if (!window.location.hash) {
+                window.location.hash = '/quiz1';
+            }
+            handleRouting();
+        });
+    </script>
+</body>
+</html>
